@@ -65,4 +65,51 @@ namespace CabInvoiceGenerator
             object.Equals(expected, invoiceSummary);
 
         }
+
+        /// <summary>
+        /// test 4.1
+        /// </summary>
+        [Test]
+        public void GivenUserId_InvoiceServiceGetsListOfRidesFromRideRepository_ReturnInvoice()
+        {
+            string userId = "17nidhi1997";
+            Ride[] rides = {new Ride(2.0, 5),
+                   new Ride(0.1, 1)
+               };
+            Ride[] rides1 = {new Ride(2.0, 5),
+                   new Ride(0.1, 1)
+               };
+
+            RideRepository rideRepository = new RideRepository();
+            rideRepository.AddRides(userId, rides);
+            rideRepository.AddRides(userId, rides1);
+            InvoiceGenorator invoice = new InvoiceGenorator();
+            InvoiceSummary total = invoice.CalculateFare(rideRepository.GetRides(userId));
+            Assert.AreEqual(60, total.totalFare);
+        }
+
+        /// <summary>
+        /// test 4.2
+        /// </summary>
+        [Test]
+        public void GivenUserId_InvoiceServicefRidesFromRideRepository_ReturnNullException()
+        {
+            try
+            {
+                string userId = null;
+                Ride[] rides = {new Ride(2.0, 5),
+                   new Ride(0.1, 1)
+            };
+                RideRepository rideRepository = new RideRepository();
+                rideRepository.AddRides(userId, rides);
+                InvoiceGenorator invoice = new InvoiceGenorator();
+                InvoiceSummary total = invoice.CalculateFare(rideRepository.GetRides(userId));
+            }
+            catch (customException e)
+            {
+                Assert.AreEqual("NULL_exception", e.mgs);
+            }
+        }
+
     }
+}  
