@@ -84,7 +84,7 @@ namespace cabInvoiceGenerator
             rideRepository.AddRides(userId, rides);
             rideRepository.AddRides(userId, rides1);
             InvoiceSummary total = invoiceGenorator.CalculateFare(rideRepository.GetRides(userId));
-            Assert.AreEqual(60, total.totalFare);
+            Assert.AreEqual(120, total.totalFare);
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace cabInvoiceGenerator
             };
             rideRepository.AddRides(userId, rides);
             InvoiceSummary retunTotal = invoiceGenorator.CalculateFare(rideRepository.GetRides(userId));
-            Assert.AreEqual(61.5, retunTotal.totalFare);
+            Assert.AreEqual(47.5, retunTotal.totalFare);
         }
 
         /// <summary>
@@ -165,9 +165,8 @@ namespace cabInvoiceGenerator
             RideRepository rideRepository = new RideRepository();
             rideRepository.AddRides(userId, rides);
             rideRepository.AddRides(userId1, rides1);
-            InvoiceGenorator invoice = new InvoiceGenorator();
-            InvoiceSummary total = invoice.CalculateFare(rideRepository.GetRides(userId));
-            Assert.AreEqual(120, total.totalFare);
+            InvoiceSummary total = invoiceGenorator.CalculateFare(rideRepository.GetRides(userId));
+            Assert.AreEqual(30, total.totalFare);
         }
 
         /// <summary>
@@ -184,8 +183,7 @@ namespace cabInvoiceGenerator
             };
                 RideRepository rideRepository = new RideRepository();
                 rideRepository.AddRides(userId, rides);
-                InvoiceGenorator invoice = new InvoiceGenorator();
-                InvoiceSummary total = invoice.CalculateFare(rideRepository.GetRides(userId));
+                InvoiceSummary total = invoiceGenorator.CalculateFare(rideRepository.GetRides(userId));
             }
             catch (customException e)
             {
