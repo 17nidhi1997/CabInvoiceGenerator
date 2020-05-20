@@ -4,13 +4,27 @@ using System.Text;
 
 namespace cabInvoiceGenerator
 {
-    class InvoiceGenorator
+   public class InvoiceGenorator
     {
-        public  double minimumCostPerKilometer = 10.0;
+        IRideRepository rideRepository = null;
+        public InvoiceGenorator(IRideRepository rideRepository)
+        {
+            this.rideRepository = rideRepository;
+        }
+        public void AddRides(string userId, Ride[] rides)
+        {
+            this.rideRepository.AddRides(userId, rides);
+        }
+        public Ride[] GetRides(string userId)
+        {
+            return this.rideRepository.GetRides(userId);
+        }
+        public InvoiceGenorator()
+        {
+        }
+        public double minimumCostPerKilometer = 10.0;
         public   int costPerTime = 1;
         public  int mimumFare = 5;
-
-
         public double CalculateFare(cabRide cabride, double Distance, double Time)
         {
 
