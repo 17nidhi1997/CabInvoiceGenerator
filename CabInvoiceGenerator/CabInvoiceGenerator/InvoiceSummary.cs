@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CabInvoiceGenerator
+namespace cabInvoiceGenerator
 {
     public class InvoiceSummary
     {
@@ -16,4 +16,4 @@ namespace CabInvoiceGenerator
         }
 
     }
-}
+}      
