@@ -9,8 +9,7 @@ namespace CabInvoiceGenerator
         NULL_exception
     }
     public class customException : Exception
-    {
-
+    { 
         public string mgs;
         public customException(string message)
         {
