@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CabInvoiceGenerator
+namespace cabInvoiceGenerator
 {
     public enum ExceptionType
     {
@@ -10,7 +10,6 @@ namespace CabInvoiceGenerator
     }
     public class customException : Exception
     {
-
         public string mgs;
         public customException(string message)
         {
@@ -18,3 +17,4 @@ namespace CabInvoiceGenerator
         }
     }
 }
+
