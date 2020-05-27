@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CabInvoiceGenerator
+namespace cabInvoiceGenerator
 {
     public class RideRepository
     {
@@ -14,7 +14,7 @@ namespace CabInvoiceGenerator
         public void AddRides(string userId, Ride[] rides)
         {
             if (userId == null)
-                throw new customException(ExceptionType.NULL_exception + "");
+                throw new customException(ExceptionType.NULL_exception+ "");
             bool checkRide = userRideObject.ContainsKey(userId);
             List<Ride> list = new List<Ride>();
             if (checkRide == false)
@@ -24,8 +24,7 @@ namespace CabInvoiceGenerator
 
             }
             else
-            {
-                foreach (Ride ride in rides)
+            { foreach (Ride ride in rides)
                     userRideObject[userId].Add(ride);
             }
         }
@@ -33,6 +32,5 @@ namespace CabInvoiceGenerator
         {
             return userRideObject[userId].ToArray();
         }
-
     }
 }
