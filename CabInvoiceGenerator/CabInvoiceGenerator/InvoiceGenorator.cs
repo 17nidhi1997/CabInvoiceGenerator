@@ -27,7 +27,6 @@ namespace cabInvoiceGenerator
         public  int mimumFare = 5;
         public double CalculateFare(cabRide cabride, double Distance, double Time)
         {
-
             double totalFare = Distance * minimumCostPerKilometer + Time * costPerTime;
             if (totalFare < mimumFare)
                 return mimumFare;
@@ -49,6 +48,5 @@ namespace cabInvoiceGenerator
             invoiceSummary.CalculateAverageCabFare();
             return invoiceSummary;
         }
-
     }
 }
