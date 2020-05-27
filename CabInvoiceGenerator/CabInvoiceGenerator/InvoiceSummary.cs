@@ -12,8 +12,6 @@ namespace cabInvoiceGenerator
         public void CalculateAverageCabFare()
         {
             averageFare = totalFare / noOfRides;
-
         }
-
     }
 }      
