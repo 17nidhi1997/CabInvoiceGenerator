@@ -25,7 +25,6 @@ namespace cabInvoiceGenerator
             this.CostPerMin = CostPerMin;
             this.MinFare = MinFare;
         }
-
         public double CalculateFare(Ride ride)
         {
             double RideCost = ride.distance * CostPerKilometer + ride.time * CostPerMin;
